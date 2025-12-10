@@ -1,0 +1,29 @@
+name: CV Güncelleme Robotu
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Manuel çalıştırma butonu
+
+jobs:
+  deploy-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodlari Cek
+        uses: actions/checkout@v3
+
+      - name: AWS Giris
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: S3 Yukle
+        run: |
+          aws s3 cp index.html s3://${{ secrets.S3_BUCKET_NAME }}/
+
+      - name: CloudFront Temizle
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID }} --paths "/*"
