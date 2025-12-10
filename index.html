@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oytun Can Altay | Portföy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- GENEL AYARLAR --- */
+        :root {
+            --bg-color: #0f172a; /* Koyu Lacivert Arka Plan */
+            --card-bg: #1e293b;   /* Kart Rengi */
+            --primary: #38bdf8;   /* Açık Mavi (Cloud) */
+            --accent: #f472b6;    /* Pembe (Vurgu) */
+            --text-main: #f1f5f9; /* Beyaz Metin */
+            --text-sub: #94a3b8;  /* Gri Metin */
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- HEADER (Üst Kısım) --- */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
+            border-bottom: 1px solid #334155;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+        }
+
+        h1 { margin: 10px 0; font-size: 2.5em; letter-spacing: -1px; }
+        .subtitle { color: var(--primary); font-weight: 600; font-size: 1.2em; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .social-links { margin-top: 20px; }
+        .social-links a {
+            color: var(--text-sub);
+            font-size: 1.5em;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+        .social-links a:hover { color: var(--primary); transform: scale(1.2); display: inline-block; }
+
+        /* --- BÖLÜMLER --- */
+        section { margin: 50px 0; }
+        
+        h2 {
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        /* --- PROJE VE SERTİFİKA KARTLARI (GRID) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: var(--primary);
+        }
+
+        .card h3 { margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .card p { color: var(--text-sub); font-size: 0.95em; }
+
+        /* --- TEKNOLOJİ ETİKETLERİ --- */
+        .tags { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        /* --- YETENEKLER KUTUSU --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .skill-box {
+            background: #1e293b;
+            padding: 15px 25px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            text-align: center;
+            min-width: 120px;
+        }
+        .skill-box i { font-size: 2em; margin-bottom: 10px; color: var(--accent); }
+        .skill-box span { display: block; font-weight: bold; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-sub);
+            font-size: 0.9em;
+            border-top: 1px solid #334155;
+            margin-top: 50px;
+        }
+
+        /* Mobil Uyum */
+        @media (max-width: 768px) {
+            .projects-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="profile-img">
+                <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+            <h1>Oytun Can Altay</h1>
+            <span class="subtitle">Cloud & Security Engineer</span>
+            
+            <div class="social-links">
+                <a href="https://github.com/oytuncan" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/oytun-can-altay/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=oytuncanaltay@gmail.com" target="_blank" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                <p>Bu CV <span id="sayac">...</span> kişi tarafından görüntülendi.</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2><i class="fa-solid fa-terminal"></i> Hakkımda</h2>
+            <p style="color: var(--text-sub); font-size: 1.1em;">
+                Teorik bilgiyi gerçek dünya senaryolarına dönüştürmeyi amaçlayan bir <strong>İstanbul Üniversitesi - Cerrahpaşa</strong> Bilgisayar Mühendisliği öğrencisiyim. 
+                AWS Bulut mimarisi, Linux sistem yönetimi ve Ağ Güvenliği konularında aktif projeler geliştiriyorum. 
+                Hedefim, güvenli ve ölçeklenebilir bulut sistemleri tasarlamak.
+            </p>
+        </section>
+
+        <section>
+            <h2><i class="fa-solid fa-laptop-code"></i> Son Projelerim</h2>
+            <div class="projects-grid">
+                
+                <div class="card">
+                    <h3><i class="fa-solid fa-shield-halved"></i> AWS Honeypot Analizi</h3>
+                    <p>Siber saldırı yöntemlerini anlamak için AWS üzerinde T-Pot altyapısı kurdum. Docker konteynerleri ile izole edilmiş tuzak sunuculara gelen 1000+ saldırıyı ELK Stack ile analiz ettim.</p>
+                    <div class="tags">
+                        <span class="tag">AWS EC2</span>
+                        <span class="tag">Cyber Security</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Kibana</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-network-wired"></i> Kişisel VPN Sunucusu</h3>
+                    <p>Veri gizliliği ve güvenliği için Frankfurt lokasyonlu bir sunucu üzerinde WireGuard protokolü ile kendi VPN hattımı oluşturdum. UDP port yönetimi ve Elastic IP yapılandırması gerçekleştirdim.</p>
+                    <div class="tags">
+                        <span class="tag">Network</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">WireGuard</span>
+                        <span class="tag">Privacy</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-cloud"></i> Serverless Web Portföyü</h3>
+                    <p>Geleneksel sunucu maliyetlerini ortadan kaldırmak için S3 ve CloudFront kullanarak sunucusuz (Serverless) mimaride bu web sitesini yayınladım. HTTPS güvenliği ve CDN optimizasyonu sağladım.</p>
+                    <div class="tags">
+                        <span class="tag">AWS S3</span>
+                        <span class="tag">CloudFront</span>
+                        <span class="tag">Serverless</span>
+                        <span class="tag">SSL/TLS</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fa-solid fa-microchip"></i> Teknik Yetenekler</h2>
+            <div class="skills-container">
+                <div class="skill-box"><i class="fa-brands fa-aws"></i><span>AWS Cloud</span></div>
+                <div class="skill-box"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
+                <div class="skill-box"><i class="fa-solid fa-lock"></i><span>Network Sec</span></div>
+                <div class="skill-box"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+                <div class="skill-box"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                <div class="skill-box"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fa-solid fa-certificate"></i> Sertifikalar</h2>
+            <div class="projects-grid">
+                <div class="card">
+                    <h3><i class="fa-brands fa-aws"></i> AWS Certified Cloud Practitioner</h3>
+                    <p>Amazon Web Services (AWS) bulut platformunun temel kavramları, güvenlik, mimari ve faturalandırma süreçleri üzerine yetkinlik.</p>
+                    <div class="tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Cloud Computing</span>
+                        <span class="tag">Validation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        
+        <p>🚀 Bu site AWS S3 üzerinde barındırılmakta ve CloudFront ile dağıtılmaktadır.</p>
+        <p>© 2025 - Oytun Can Altay</p>
+    </footer>
+    <script>
+    // Lambda API'sine gidip sayıyı isteyen kod
+    fetch('https://ys3symqu5bnlqdadauqykc2mt40adnnf.lambda-url.us-east-1.on.aws/')
+        .then(response => response.json())
+        .then(data => {
+            // Gelen cevabı (data.count) alıp "sayac" id'li yere yazıyoruz
+            document.getElementById('sayac').innerText = data.count;
+        })
+        .catch(error => console.error('Hata:', error));
+</script>
+
+</body>
+</html>
