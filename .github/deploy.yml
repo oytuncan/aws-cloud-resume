@@ -1,9 +1,10 @@
-name: CV Sitesini Otomatik Guncelle
+name: CV Sitesini Zorla Guncelle
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch: # Bu satır, manuel butonla çalıştırmanı sağlar!
 
 jobs:
   deploy-site:
