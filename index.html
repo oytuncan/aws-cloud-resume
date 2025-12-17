@@ -257,15 +257,21 @@
         <p>© 2025 - Oytun Can Altay</p>
     </footer>
     <script>
-    // Lambda API'sine gidip sayıyı isteyen kod
-    fetch('https://ys3symqu5bnlqdadauqykc2mt40adnnf.lambda-url.us-east-1.on.aws/')
-        .then(response => response.json())
-        .then(data => {
-            // Gelen cevabı (data.count) alıp "sayac" id'li yere yazıyoruz
-            document.getElementById('sayac').innerText = data.count;
-        })
-        .catch(error => console.error('Hata:', error));
-</script>
+        // BURAYA KENDİ LAMBDA LİNKİNİ YAPIŞTIR
+        const lambdaUrl = "https://ys3symqu5bnlqdadauqykc2mt40adnnf.lambda-url.us-east-1.on.aws/";
+
+        fetch(lambdaUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Sayıyı HTML'deki 'sayac' id'li yere yaz
+                document.getElementById('sayac').innerText = data;
+            })
+            .catch(error => {
+                console.error('Hata:', error);
+                document.getElementById('sayac').innerText = "Hata";
+            });
+    </script>
+    
 
 </body>
 </html>
