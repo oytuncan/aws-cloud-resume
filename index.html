@@ -9,12 +9,9 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Oytun Can Altay | Portföy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Oytun Can Altay | Cloud Security Engineer & Developer</title>
-
+    
     <meta name="description" content="Oytun Can Altay'ın kişisel portföyü. AWS, Terraform, Cloud Security ve Siber Güvenlik alanındaki projelerim, sertifikalarım ve CV'im.">
-
     <meta name="author" content="Oytun Can Altay">
-
     <meta name="keywords" content="Oytun Can Altay, Cloud Engineer, AWS, Terraform, Cyber Security, DevOps, Portfolio">
     
     <style>
@@ -46,7 +43,7 @@
         /* --- HEADER (Üst Kısım) --- */
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 60px 20px 40px 20px;
             background: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
             border-bottom: 1px solid #334155;
         }
@@ -77,6 +74,26 @@
         }
         .social-links a:hover { color: var(--primary); transform: scale(1.2); display: inline-block; }
 
+        /* --- DİL BUTONLARI --- */
+        .lang-switch {
+            margin-top: 20px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 5px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--primary);
+            color: var(--bg-color);
+        }
+
         /* --- BÖLÜMLER --- */
         section { margin: 50px 0; }
         
@@ -102,6 +119,8 @@
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
+            height: 100%;
+            box-sizing: border-box;
         }
 
         .card:hover {
@@ -158,6 +177,12 @@
             .projects-grid { grid-template-columns: 1fr; }
             h1 { font-size: 2em; }
         }
+
+        /* --- DÜZELTİLMİŞ GİZLEME MANTIĞI --- */
+        /* display:none yerine bu sınıfı kullanacağız */
+        .d-none {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -175,33 +200,56 @@
                 <a href="https://www.linkedin.com/in/oytun-can-altay/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=oytuncanaltay@gmail.com" target="_blank" title="Email"><i class="fa-solid fa-envelope"></i></a>
                 <a href="https://foto.oytuncanaltay.com" target="_blank" title="Fotoğraf Portfolyom">
-            <i class="fa-solid fa-camera"></i>
-            </a>
-                <p>Bu CV <span id="sayac">...</span> kişi tarafından görüntülendi.</p>
+                    <i class="fa-solid fa-camera"></i>
+                </a>
             </div>
+
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="switchLanguage('tr')" id="btn-tr">TR</button>
+                <button class="lang-btn" onclick="switchLanguage('en')" id="btn-en">EN</button>
+            </div>
+
+            <p class="lang-tr" style="color: var(--text-sub); margin-top: 15px; font-size: 0.9em;">
+                Bu CV <span id="sayac-tr">...</span> kişi tarafından görüntülendi.
+            </p>
+            <p class="lang-en d-none" style="color: var(--text-sub); margin-top: 15px; font-size: 0.9em;">
+                This CV has been viewed by <span id="sayac-en">...</span> people.
+            </p>
         </div>
     </header>
 
     <div class="container">
         
         <section>
-            <h2><i class="fa-solid fa-terminal"></i> Hakkımda</h2>
-            <p style="color: var(--text-sub); font-size: 1.1em;">
+            <h2 class="lang-tr"><i class="fa-solid fa-terminal"></i> Hakkımda</h2>
+            <h2 class="lang-en d-none"><i class="fa-solid fa-terminal"></i> About Me</h2>
+
+            <p class="lang-tr" style="color: var(--text-sub); font-size: 1.1em;">
                 Teorik bilgiyi gerçek dünya senaryolarına dönüştürmeyi amaçlayan bir <strong>İstanbul Üniversitesi - Cerrahpaşa</strong> Bilgisayar Mühendisliği öğrencisiyim. 
                 AWS Bulut mimarisi, Linux sistem yönetimi ve Ağ Güvenliği konularında aktif projeler geliştiriyorum. 
                 Hedefim, güvenli ve ölçeklenebilir bulut sistemleri tasarlamak.
             </p>
+            <p class="lang-en d-none" style="color: var(--text-sub); font-size: 1.1em;">
+                I am a Computer Engineering student at <strong>Istanbul University - Cerrahpaşa</strong>, aiming to transform theoretical knowledge into real-world scenarios. 
+                I am actively developing projects on AWS Cloud architecture, Linux system administration, and Network Security. 
+                My goal is to design secure and scalable cloud systems.
+            </p>
         </section>
 
         <section>
-            <h2><i class="fa-solid fa-laptop-code"></i> Son Projelerim</h2>
+            <h2 class="lang-tr"><i class="fa-solid fa-laptop-code"></i> Son Projelerim</h2>
+            <h2 class="lang-en d-none"><i class="fa-solid fa-laptop-code"></i> Recent Projects</h2>
+
             <div class="projects-grid">
       
-                
                 <a href="https://github.com/oytuncan/AWS-Honeypot-Analysis" target="_blank" style="text-decoration: none; color: inherit; display: block;">
                 <div class="card">
-                    <h3><i class="fa-solid fa-shield-halved"></i> AWS Honeypot Analizi</h3>
-                    <p>Siber saldırı yöntemlerini anlamak için AWS üzerinde T-Pot altyapısı kurdum. Docker konteynerleri ile izole edilmiş tuzak sunuculara gelen 1000+ saldırıyı ELK Stack ile analiz ettim.</p>
+                    <h3 class="lang-tr"><i class="fa-solid fa-shield-halved"></i> AWS Honeypot Analizi</h3>
+                    <h3 class="lang-en d-none"><i class="fa-solid fa-shield-halved"></i> AWS Honeypot Analysis</h3>
+
+                    <p class="lang-tr">Siber saldırı yöntemlerini anlamak için AWS üzerinde T-Pot altyapısı kurdum. Docker konteynerleri ile izole edilmiş tuzak sunuculara gelen 1000+ saldırıyı ELK Stack ile analiz ettim.</p>
+                    <p class="lang-en d-none">I established a T-Pot infrastructure on AWS to understand cyber attack methods. I analyzed 1000+ attacks on isolated decoy servers using Docker containers and ELK Stack.</p>
+                    
                     <div class="tags">
                         <span class="tag">AWS EC2</span>
                         <span class="tag">Cyber Security</span>
@@ -211,14 +259,14 @@
                 </div>
                 </a>
                 
-                
-
-
-
                 <a href="https://github.com/oytuncan/AWS-WireGuard-VPN-Server" target="_blank" style="text-decoration: none; color: inherit; display: block;">
                 <div class="card">
-                    <h3><i class="fa-solid fa-network-wired"></i> Kişisel VPN Sunucusu</h3>
-                    <p>Veri gizliliği ve güvenliği için Frankfurt lokasyonlu bir sunucu üzerinde WireGuard protokolü ile kendi VPN hattımı oluşturdum. UDP port yönetimi ve Elastic IP yapılandırması gerçekleştirdim.</p>
+                    <h3 class="lang-tr"><i class="fa-solid fa-network-wired"></i> Kişisel VPN Sunucusu</h3>
+                    <h3 class="lang-en d-none"><i class="fa-solid fa-network-wired"></i> Personal VPN Server</h3>
+
+                    <p class="lang-tr">Veri gizliliği ve güvenliği için Frankfurt lokasyonlu bir sunucu üzerinde WireGuard protokolü ile kendi VPN hattımı oluşturdum. UDP port yönetimi ve Elastic IP yapılandırması gerçekleştirdim.</p>
+                    <p class="lang-en d-none">I created my own VPN line using the WireGuard protocol on a server located in Frankfurt for data privacy. I configured UDP port management and Elastic IP.</p>
+
                     <div class="tags">
                         <span class="tag">Network</span>
                         <span class="tag">Linux</span>
@@ -228,11 +276,14 @@
                 </div>
                 </a>
 
-
                 <a href="https://github.com/oytuncan/AWS-Serverless-Cloud-Resume" target="_blank" style="text-decoration: none; color: inherit; display: block;">
                 <div class="card">
-                    <h3><i class="fa-solid fa-cloud"></i> Serverless Web Portföyü</h3>
-                    <p>Geleneksel sunucu maliyetlerini ortadan kaldırmak için S3 ve CloudFront kullanarak sunucusuz (Serverless) mimaride bu web sitesini yayınladım. HTTPS güvenliği ve CDN optimizasyonu sağladım.</p>
+                    <h3 class="lang-tr"><i class="fa-solid fa-cloud"></i> Serverless Web Portföyü</h3>
+                    <h3 class="lang-en d-none"><i class="fa-solid fa-cloud"></i> Serverless Web Portfolio</h3>
+
+                    <p class="lang-tr">Geleneksel sunucu maliyetlerini ortadan kaldırmak için S3 ve CloudFront kullanarak sunucusuz (Serverless) mimaride bu web sitesini yayınladım. HTTPS güvenliği ve CDN optimizasyonu sağladım.</p>
+                    <p class="lang-en d-none">I published this website using S3 and CloudFront in a serverless architecture to eliminate traditional server costs, ensuring HTTPS security and CDN optimization.</p>
+
                     <div class="tags">
                         <span class="tag">AWS S3</span>
                         <span class="tag">CloudFront</span>
@@ -242,29 +293,30 @@
                 </div>
                 </a>
 
-
                 <a href="https://github.com/oytuncan/aws-security-event-project" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-    
                 <div class="card">
-                    <h3><i class="fa-solid fa-shield-halved"></i> Olay Güdümlü Güvenlik Otomasyonu</h3>
-                    <p>Siber güvenlik tehditlerini gerçek zamanlı analiz eden ve otomatik yanıt veren (Event-Driven) bir mimari geliştirdim. Tüm altyapıyı Terraform (IaC) ile kodladım ve GitHub Actions kullanarak projeye DevSecOps süreçlerini (Otomatik Güvenlik Taraması) entegre ettim.</p>
+                    <h3 class="lang-tr"><i class="fa-solid fa-shield-halved"></i> Olay Güdümlü Güvenlik</h3>
+                    <h3 class="lang-en d-none"><i class="fa-solid fa-shield-halved"></i> Event-Driven Security</h3>
+
+                    <p class="lang-tr">Siber güvenlik tehditlerini gerçek zamanlı analiz eden ve otomatik yanıt veren (Event-Driven) bir mimari geliştirdim. Altyapıyı Terraform ile kodladım ve GitHub Actions ile DevSecOps süreçlerini entegre ettim.</p>
+                    <p class="lang-en d-none">I developed an Event-Driven architecture that analyzes cyber security threats in real-time. I coded the infrastructure with Terraform and integrated DevSecOps processes using GitHub Actions.</p>
+
                     <div class="tags">
                         <span class="tag">Terraform (IaC)</span>
                         <span class="tag">AWS EventBridge</span>
                         <span class="tag">DevSecOps</span>
                         <span class="tag">API Gateway</span>
-                        <span class="tag">Python</span>
                     </div>
                 </div>
-
-            </a>
-                
+                </a>
 
             </div>
         </section>
 
         <section>
-            <h2><i class="fa-solid fa-microchip"></i> Teknik Yetenekler</h2>
+            <h2 class="lang-tr"><i class="fa-solid fa-microchip"></i> Teknik Yetenekler</h2>
+            <h2 class="lang-en d-none"><i class="fa-solid fa-microchip"></i> Technical Skills</h2>
+
             <div class="skills-container">
                 <div class="skill-box"><i class="fa-brands fa-aws"></i><span>AWS Cloud</span></div>
                 <div class="skill-box"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
@@ -276,11 +328,16 @@
         </section>
 
         <section>
-            <h2><i class="fa-solid fa-certificate"></i> Sertifikalar</h2>
+            <h2 class="lang-tr"><i class="fa-solid fa-certificate"></i> Sertifikalar</h2>
+            <h2 class="lang-en d-none"><i class="fa-solid fa-certificate"></i> Certifications</h2>
+
             <div class="projects-grid">
                 <div class="card">
                     <h3><i class="fa-brands fa-aws"></i> AWS Certified Cloud Practitioner</h3>
-                    <p>Amazon Web Services (AWS) bulut platformunun temel kavramları, güvenlik, mimari ve faturalandırma süreçleri üzerine yetkinlik.</p>
+                    
+                    <p class="lang-tr">Amazon Web Services (AWS) bulut platformunun temel kavramları, güvenlik, mimari ve faturalandırma süreçleri üzerine yetkinlik.</p>
+                    <p class="lang-en d-none">Competence in the core concepts, security, architecture, and billing processes of the Amazon Web Services (AWS) cloud platform.</p>
+
                     <div class="tags">
                         <span class="tag">AWS</span>
                         <span class="tag">Cloud Computing</span>
@@ -293,20 +350,49 @@
     </div>
 
     <footer>
+        <p class="lang-tr">🚀 Bu site AWS S3 üzerinde barındırılmakta ve CloudFront ile dağıtılmaktadır.</p>
+        <p class="lang-en d-none">🚀 This site is hosted on AWS S3 and distributed via CloudFront.</p>
         
-        <p>🚀 Bu site AWS S3 üzerinde barındırılmakta ve CloudFront ile dağıtılmaktadır.</p>
         <p>© 2025 - Oytun Can Altay</p>
     </footer>
+
     <script>
-    // Lambda API'sine gidip sayıyı isteyen kod
+    // --- DÜZELTİLMİŞ JS KODU ---
+    function switchLanguage(lang) {
+        // Tüm elemanları seç
+        const trElements = document.querySelectorAll('.lang-tr');
+        const enElements = document.querySelectorAll('.lang-en');
+        const btnTr = document.getElementById('btn-tr');
+        const btnEn = document.getElementById('btn-en');
+
+        if (lang === 'tr') {
+            // Türkçe: .d-none sınıfını kaldır (Görünür Yap)
+            trElements.forEach(el => el.classList.remove('d-none'));
+            // İngilizce: .d-none sınıfını ekle (Gizle)
+            enElements.forEach(el => el.classList.add('d-none'));
+            
+            btnTr.classList.add('active');
+            btnEn.classList.remove('active');
+        } else {
+            // Türkçe: .d-none sınıfını ekle (Gizle)
+            trElements.forEach(el => el.classList.add('d-none'));
+            // İngilizce: .d-none sınıfını kaldır (Görünür Yap)
+            enElements.forEach(el => el.classList.remove('d-none'));
+
+            btnEn.classList.add('active');
+            btnTr.classList.remove('active');
+        }
+    }
+
+    // --- SAYAÇ SCRİPTİ ---
     fetch('https://ys3symqu5bnlqdadauqykc2mt40adnnf.lambda-url.us-east-1.on.aws/')
         .then(response => response.json())
         .then(data => {
-            // Gelen cevabı (data.count) alıp "sayac" id'li yere yazıyoruz
-            document.getElementById('sayac').innerText = data.count;
+            if(document.getElementById('sayac-tr')) document.getElementById('sayac-tr').innerText = data.count;
+            if(document.getElementById('sayac-en')) document.getElementById('sayac-en').innerText = data.count;
         })
         .catch(error => console.error('Hata:', error));
-</script>
+    </script>
 
 </body>
 </html>
