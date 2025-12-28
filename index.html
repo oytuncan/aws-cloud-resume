@@ -197,8 +197,13 @@
             
             <div class="social-links">
                 <a href="https://github.com/oytuncan" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                
                 <a href="https://www.linkedin.com/in/oytun-can-altay/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=oytuncanaltay@gmail.com" target="_blank" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                
+                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=oytuncanaltay@gmail.com" target="_blank" title="Gmail ile Gönder">
+              <i class="fa-solid fa-envelope"></i>
+                </a>
+                
                 <a href="https://foto.oytuncanaltay.com" target="_blank" title="Fotoğraf Portfolyom">
                     <i class="fa-solid fa-camera"></i>
                 </a>
@@ -357,6 +362,18 @@
     </footer>
 
     <script>
+        // --- EMAİL KOPYALAMA FONKSİYONU ---
+    function copyEmail() {
+        const email = "oytuncanaltay@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+            // Kullanıcıya bilgi ver (Basit bir alert veya daha şık bir yöntem)
+            alert("E-posta adresi panoya kopyalandı: " + email);
+        }).catch(err => {
+            console.error('Kopyalama hatası:', err);
+        });
+    }
+
+
     // --- DÜZELTİLMİŞ JS KODU ---
     function switchLanguage(lang) {
         // Tüm elemanları seç
